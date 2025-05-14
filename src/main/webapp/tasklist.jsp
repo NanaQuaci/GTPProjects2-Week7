@@ -85,7 +85,9 @@
                             <td>${task.status}</td>
                             <td>
                                 <a href="edittask?id=${task.id}" class="btn btn-edit">Edit</a>
-                                <a href="deletetask?id=${task.id}" class="btn btn-delete">Delete</a>
+                                <a href="deletetask?id=${task.id}" class="btn btn-delete"
+                                   onclick="return confirm('Are you sure you want to delete this task?');">
+                                   Delete</a>
                             </td>
                         </tr>
                     </c:forEach>
