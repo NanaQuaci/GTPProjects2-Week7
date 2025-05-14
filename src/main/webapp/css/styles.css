@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f6fa;
+    color: #333;
+}
+
+/* Landing Page */
+body.landing-page {
+    background: linear-gradient(to right, #eef2f3, #8e9eab);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0;
+}
+
+.landing-container {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.landing-container h1 {
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+.landing-container p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.logo {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+/* Task List Page */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    flex: 1;
+    min-width: 150px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+tr:nth-child(even):not(.overdue):not(.completed) {
+    background-color: #f9f9f9;
+}
+
+tr.overdue {
+    background-color: #ffe6e6 !important;
+    color: #b30000;
+    font-weight: bold;
+}
+
+tr.completed {
+    background-color: #e6ffe6 !important;
+    color: #006600;
+    font-weight: bold;
+}
+
+
+tr.pending {
+    background-color: #fff5f5 !important;
+    color: #cc0000;
+    font-weight: bold;
+}
+
+
+
+.no-tasks {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}
+
+label {
+    font-weight: bold;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    display: inline-block;
+    padding: 4px 10px;       /* Smaller padding */
+    font-size: 13px;         /* Slightly smaller text */
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 4px;       /* Small gap between buttons */
+    white-space: nowrap;     /* Prevent wrapping */
+}
+
+
+.btn-edit {
+    background-color: #007bff;
+}
+
+.btn-edit:hover {
+    background-color: #0056b3;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+}
+
+.btn-delete:hover {
+    background-color: #a71d2a;
+}

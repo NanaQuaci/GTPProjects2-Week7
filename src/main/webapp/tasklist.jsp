@@ -14,109 +14,7 @@
 <head>
     <title>Task Manager</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f5f6fa;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        form {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-            align-items: center;
-        }
-
-        input, select {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 14px;
-            flex: 1;
-            min-width: 150px;
-        }
-
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-
-        tr:nth-child(even):not(.overdue):not(.completed) {
-            background-color: #f9f9f9;
-        }
-
-        tr.overdue {
-            background-color: #ffe6e6 !important;
-            color: #b30000;
-            font-weight: bold;
-        }
-
-        tr.completed {
-            background-color: #e6ffe6 !important;
-            color: #006600;
-            font-weight: bold;
-        }
-
-        .no-tasks {
-            text-align: center;
-            font-style: italic;
-            color: #888;
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 15px;
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
-    </style>
+     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 
 <body>
@@ -153,18 +51,25 @@
                         <th>ID</th>
                         <th>Title</th>
                         <th>Description</th>
-                        <th>Due Date</th>
+                        <th style="width: 100px;">Due Date</th>
                         <th>Status</th>
-                        <th>Actions</th>
+                        <th style="width: 140px;">Actions</th>
                     </tr>
                     <c:forEach var="task" items="${tasks}">
                         <c:set var="rowClass" value="" />
-                        <c:if test="${task.status == 'Completed'}">
-                            <c:set var="rowClass" value="completed" />
-                        </c:if>
-                        <c:if test="${task.dueDate lt todayStr and task.status != 'Completed'}">
-                            <c:set var="rowClass" value="overdue" />
-                        </c:if>
+                        <c:choose>
+                            <c:when test="${task.status == 'Completed'}">
+                                <c:set var="rowClass" value="completed" />
+                            </c:when>
+                            <c:when test="${task.dueDate lt todayStr and task.status != 'Completed'}">
+                                <c:set var="rowClass" value="overdue" />
+                            </c:when>
+                            <c:when test="${task.status == 'Pending'}">
+                                <c:set var="rowClass" value="pending" />
+                            </c:when>
+                        </c:choose>
+
+
 
                         <tr class="${rowClass}">
                             <td>${task.id}</td>
@@ -173,8 +78,8 @@
                             <td>${task.dueDate}</td>
                             <td>${task.status}</td>
                             <td>
-                                <a href="edittask?id=${task.id}">Edit</a> |
-                                <a href="deletetask?id=${task.id}">Delete</a>
+                                <a href="edittask?id=${task.id}" class="btn btn-edit">Edit</a>
+                                <a href="deletetask?id=${task.id}" class="btn btn-delete">Delete</a>
                             </td>
                         </tr>
                     </c:forEach>

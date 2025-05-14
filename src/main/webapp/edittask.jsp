@@ -5,7 +5,11 @@
     Task task = (Task) request.getAttribute("task");
 %>
 <html>
-<head><title>Edit Task</title></head>
+<head>
+<title>Edit Task</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
+</head>
 <body>
 <h1>Edit Task</h1>
 

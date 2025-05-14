@@ -2,7 +2,7 @@
 <html>
 <head><title>Task Manager</title></head>
 <body>
-    <h1>Welcome to Task Management System</h1>
+    <h1>Welcome to Novatech Task Management System</h1>
     <a href="tasks">View Tasks</a>
 </body>
 </html>
