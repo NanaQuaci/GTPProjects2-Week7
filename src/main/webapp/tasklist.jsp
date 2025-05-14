@@ -23,14 +23,16 @@
     <h1>Task List</h1>
 
     <!-- Add Task Form -->
-    <form method="post" action="tasks">
+    <form method="post" action="tasks" accept-charset="UTF-8">
         <input name="title" placeholder="Title" required />
         <input name="description" placeholder="Description" required />
         <input name="dueDate" type="date" required />
         <select name="status">
-            <option>Pending</option>
-            <option>Completed</option>
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
         </select>
+
         <button type="submit">Add Task</button>
     </form>
 
@@ -52,7 +54,7 @@
                         <th>Title</th>
                         <th>Description</th>
                         <th style="width: 100px;">Due Date</th>
-                        <th>Status</th>
+                        <th style="width: 100px;">Status</th>
                         <th style="width: 140px;">Actions</th>
                     </tr>
                     <c:forEach var="task" items="${tasks}">
@@ -64,10 +66,14 @@
                             <c:when test="${task.dueDate lt todayStr and task.status != 'Completed'}">
                                 <c:set var="rowClass" value="overdue" />
                             </c:when>
+                            <c:when test="${task.status == 'In Progress'}">
+                                <c:set var="rowClass" value="in-progress" />
+                            </c:when>
                             <c:when test="${task.status == 'Pending'}">
                                 <c:set var="rowClass" value="pending" />
                             </c:when>
                         </c:choose>
+
 
 
 
@@ -97,6 +103,7 @@
         <select name="status">
             <option value="">All</option>
             <option value="Pending" <c:if test="${param.status == 'Pending'}">selected</c:if>>Pending</option>
+            <option value="In Progress" <c:if test="${param.status == 'In Progress'}">selected</c:if>>In Progress</option>
             <option value="Completed" <c:if test="${param.status == 'Completed'}">selected</c:if>>Completed</option>
         </select>
 

@@ -13,7 +13,7 @@
 <body>
 <h1>Edit Task</h1>
 
-<form method="post" action="edittask">
+<form method="post" action="edittask" accept-charset="UTF-8">
     <input type="hidden" name="id" value="<%= task.getId() %>" />
 
     <label>Title:</label><br>
@@ -28,6 +28,7 @@
     <label>Status:</label><br>
     <select name="status">
         <option value="Pending" <%= "Pending".equals(task.getStatus()) ? "selected" : "" %>>Pending</option>
+        <option value="In Progress" <%= "In Progress".equals(task.getStatus()) ? "selected" : "" %>>In Progress</option>
         <option value="Completed" <%= "Completed".equals(task.getStatus()) ? "selected" : "" %>>Completed</option>
     </select><br><br>
 

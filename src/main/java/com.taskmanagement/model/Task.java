@@ -7,7 +7,7 @@ public class Task {
     private String title;
     private String description;
     private LocalDate dueDate;
-    private String status; // "Pending" or "Completed"
+    private String status; // "Pending", "In Progress" or "Completed"
 
     public Task(int id, String title, String description, LocalDate dueDate, String status) {
         this.id = id;

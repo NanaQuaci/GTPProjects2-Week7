@@ -138,6 +138,13 @@ tr.pending {
     font-weight: bold;
 }
 
+tr.in-progress {
+    background-color: #fffbe6 !important;  /* light yellow */
+    color: #856404;
+    font-weight: bold;
+}
+
+
 
 
 .no-tasks {
